@@ -4,9 +4,44 @@
 {% block title  %}Contact{% endblock title %}
 
 {% block body %}
-<body background="/static/img/3.jpg">
-Simran : simi.wadhwa999@gmail.com  <br>
-Shweta : Shweta.kumari2909@gmail.com<br>
-Shubham Setia : shubham.setia.3701@gmail.com
+<style>
+
+
+.first-info{
+    
+    background: url("/static/img/9.jpg")  no-repeat fixed;
+     height: 600px;
+     color:white;
+
+     /* filter: blur(2px);
+     -webkit-filter: blur(2px); */
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+            
+     }
+    
+}
+</style>
+
+<div class="container-fluid">
+    <div class="row first-info" style="opacity: 0.8">
+        <div class="col-md-4">
+            <div class="box">
+                <span style="opacity: 1">
+                <h1>Simran : simi.wadhwa999@gmail.com</h1> <br>
+                <h1>Shweta : Shweta.kumari2909@gmail.com</h1><br>
+                <h1>Shubham Setia : shubham.setia.3701@gmail.com</h1>
+                </span>
+            </div>
+        </div>
+        
+
+    </div>
+    
+</div>
+    
 
 {% endblock body %}
