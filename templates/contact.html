@@ -5,12 +5,52 @@
 
 {% block body %}
 <style>
+    body,
+    html {
+       height: 100vh;
+       margin: 0;
+       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    /* * {
+       box-sizing: border-box;
+    } */
+    .backgroundImage {
+       background-image: url("/static/img/9.jpg");
+       filter: blur(2px);
+       height: 710px;
+       background-position: center;
+       background-repeat: no-repeat;
+       background-size: cover;
+    }
+    .transparentText {
+       /* background-color: rgba(0, 0, 0, 0.4); */
+       color: white;
+       /* border: 3px solid #f1f1f1; */
+       position: absolute;
+       top: 10%;
+       left: 5%;
+       width: 50%;
+       padding: 20px;
+       text-align: left;
+    }
+    </style>
+  
+  <div class="backgroundImage"></div>
+  <div class="transparentText">
+    <br>   
+    <h1>Simran : simi.wadhwa999@gmail.com</h1> <br>
+    <h1>Shweta : Shweta.kumari2909@gmail.com</h1><br>
+    <h1>Shubham Setia : shubham.setia.3701@gmail.com</h1>
+  
+  </div>
+
+<!-- <style>
 
 
 .first-info{
     
     background: url("/static/img/9.jpg")  no-repeat fixed;
-     height: 600px;
+     height: 710px;
      color:white;
 
      /* filter: blur(2px);
@@ -21,9 +61,10 @@
     background-repeat: no-repeat;
     background-size: cover;
             
-     }
+
     
 }
+
 </style>
 
 <div class="container-fluid">
@@ -31,6 +72,7 @@
         <div class="col-md-4">
             <div class="box">
                 <span style="opacity: 1">
+                <br>   
                 <h1>Simran : simi.wadhwa999@gmail.com</h1> <br>
                 <h1>Shweta : Shweta.kumari2909@gmail.com</h1><br>
                 <h1>Shubham Setia : shubham.setia.3701@gmail.com</h1>
@@ -41,7 +83,9 @@
 
     </div>
     
-</div>
+</div> -->
     
 
 {% endblock body %}
+
+

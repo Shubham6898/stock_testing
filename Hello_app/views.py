@@ -158,6 +158,10 @@ def apple(request):
 
     day_new=np.arange(1,101)
     day_pred=np.arange(101,131)
+    ans= scaler.inverse_transform(lst_output)
+    dic={}
+    for i in range(1,30):
+        dic[i]=ans[i-1][0]
 
     scaler.inverse_transform(lst_output)
 
@@ -166,8 +170,11 @@ def apple(request):
     '''plt.plot(day_new,scaler.inverse_transform(df1[1157:]))
     plt.plot(day_pred,scaler.inverse_transform(lst_output))
     plt.show()'''
-    plt.plot(day_new,scaler.inverse_transform(df1[1157:]))
-    plt.plot(day_pred,scaler.inverse_transform(lst_output))
+    '''plt.plot(day_new,scaler.inverse_transform(df1[1157:]))
+    plt.plot(day_pred,scaler.inverse_transform(lst_output))'''
+    df3=df1.tolist()
+    df3.extend(lst_output)
+    plt.plot(scaler.inverse_transform(df3[1200:]))
     fig=plt.gcf()
     import io
     import urllib, base64
@@ -176,7 +183,7 @@ def apple(request):
     buf.seek(0)
     string=base64.b64encode(buf.read())
     url=urllib.parse.quote(string)
-    return render(request, 'apple.html', {'data':url})
+    return render(request, 'apple.html', {'data':url,'answer':dic})
 
 
 
@@ -239,12 +246,13 @@ def microsoft(request):
     model=Sequential()
     model.add(LSTM(50,return_sequences=True,input_shape=(100,1)))
     model.add(LSTM(50,return_sequences=True))
+    model.add(LSTM(50,return_sequences=True))
     model.add(LSTM(50))
     model.add(Dense(1))
     model.compile(loss='mean_squared_error',optimizer='adam')
 
         # fitting model
-    model.fit(X_train,y_train,validation_data=(X_test,ytest),epochs=45,batch_size=50,verbose=1)
+    model.fit(X_train,y_train,validation_data=(X_test,ytest),epochs=42,batch_size=50,verbose=2)
 
         ### Lets Do the prediction and check performance metrics
     train_predict=model.predict(X_train)
@@ -317,7 +325,14 @@ def microsoft(request):
 
     scaler.inverse_transform(lst_output)
 
-    print(scaler.inverse_transform(lst_output))
+    ans=scaler.inverse_transform(lst_output)
+    dic={}
+    for i in range(1,30):
+        dic[i]=ans[i-1][0]
+
+
+
+    
 
     '''plt.plot(day_new,scaler.inverse_transform(df1[1157:]))
     plt.plot(day_pred,scaler.inverse_transform(lst_output))
@@ -326,7 +341,7 @@ def microsoft(request):
     plt.plot(day_pred,scaler.inverse_transform(lst_output))'''
     df3=df1.tolist()
     df3.extend(lst_output)
-    plt.plot(df3[1200:])
+    plt.plot(scaler.inverse_transform(df3[1200:]))
     fig=plt.gcf()
     import io
     import urllib, base64
@@ -335,7 +350,7 @@ def microsoft(request):
     buf.seek(0)
     string=base64.b64encode(buf.read())
     url=urllib.parse.quote(string)
-    return render(request, 'microsoft.html', {'data':url})
+    return render(request, 'microsoft.html', {'data':url,'answer':dic})
 
 
     

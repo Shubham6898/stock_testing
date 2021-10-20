@@ -3,8 +3,46 @@
 {% block title  %}Home{% endblock title %}
 
 {% block body %}
+
+<style>
+  body,
+  html {
+     height: 100vh;
+     margin: 0;
+     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  * {
+     box-sizing: border-box;
+  }
+  .backgroundImage {
+     background-image: url("/static/img/9.jpg");
+     filter: blur(2px);
+     height: 710px;
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+  }
+  .transparentText {
+     background-color: rgba(0, 0, 0, 0.4);
+     color: white;
+     border: 3px solid #f1f1f1;
+     position: absolute;
+     top: 40%;
+     left: 25%;
+     width: 50%;
+     padding: 20px;
+     text-align: center;
+  }
+  </style>
+
+<div class="backgroundImage"></div>
+<div class="transparentText">
+<h1>Hey there!</h1>
+<h1>Welcome to <strong>STOCKPRICE.com
+</strong></h1>
+</div>
 <!-- Carosuel Container -->
-<div class="container-fluid my-4">
+<!-- <div class="container-fluid my-4">
   
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -34,12 +72,12 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-</div> 
+</div>  -->
 
 
 <!-- Album Thumbnail-->
 
-<div class="container" my-3>
+<!-- <div class="container" my-3>
 <h1 class="my-2 text-center">Select from our collections</h1>
 
       <div class="row">
@@ -190,6 +228,6 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
 {% endblock body %}
